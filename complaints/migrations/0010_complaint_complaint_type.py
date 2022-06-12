@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('complaints', '0009_alter_complaint_complaint_id_and_more'),
+        ('complaints', '0007_complaint_transformer_user'),
     ]
 
     operations = [
