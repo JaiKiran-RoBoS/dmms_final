@@ -7,7 +7,7 @@ import uuid
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('complaints', '0008_alter_complaint_complaint_id_and_more'),
+        ('complaints', '0007_complaint_transformer_user'),
     ]
 
     operations = [
