@@ -1,0 +1,72 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a href="{% url '' %}"><img src="{% static 'images/logo_dmms.png' %}"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {% if request.user.is_staff %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Complaints
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'customer_complaints' 'cust' %}">Customer Complaint</a></li>
+            <li><a class="dropdown-item" href="{% url 'section_complaints' 'sect' %}">Section Initiated Complaints</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{% url 'trans_maintenance' 'trans' %}">Transformer Maintenance</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Jobs
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'assign_jobs' %}">Assign Jobs</a></li>
+            <li><a class="dropdown-item" href="{% url 'rectify_jobs' %}">Rectification</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{% url 'cancel_jobs' %}">Cancel Assignment</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Transformer Maintenance
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'trans_maintenance' 'trans' %}">Upcoming Maintenance</a></li>
+            <li><a class="dropdown-item" href="{% url 'trans_maintenance' 'trans' %}">Maintenance Details</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{% url 'trans_maintenance' 'trans' %}">Add Transformer</a></li>
+            <li><a class="dropdown-item" href="{% url 'trans_maintenance' 'trans' %}">Schedule Periodic Maintenance</a></li>
+          </ul>
+        </li>
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Reports
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">HT Works</a></li>
+            <li><a class="dropdown-item" href="#">LT Works</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Transformer Maintenance</a></li>
+            <li><a class="dropdown-item" href="#">Pending Works</a></li>
+            
+          </ul>
+        </li>
+        {% endif %}
+      </ul>
+      <form class="d-flex">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link">Hello, {{ request.user.first_name }}</a>
+          </li>
+        </ul>
+        <button class="btn btn-outline-success" type="submit"><a href="{% url 'logout' %}">Logout</a></button>
+      </form>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,23 @@
+{% extends 'complaints/main.html' %}
+{% load static %}
+{% block content %}
+	<h1>Transformer Maintenance</h1>
+{% load crispy_forms_tags %}
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="card card-body">
+
+			<form action="" method="POST">
+				{% csrf_token %}
+				{{ form|crispy }}
+				
+				<input type="submit" name="Submit" class="btn btn-success">
+			</form>
+
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
